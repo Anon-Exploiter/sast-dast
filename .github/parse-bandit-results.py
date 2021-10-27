@@ -7,10 +7,9 @@ def read_file(file_name):
         return f.read(file_name).strip()
 
 def main():
-    bandit_output = '../bandit-output.json'
-    file_contents = read_file(bandit_output)
-
+    bandit_output_file = '../bandit-output.json'
+    file_contents = read_file(bandit_output_file)
     print(file_contents)
 
-if __name__ == '__main':
+if __name__ == '__main__':
     main()
