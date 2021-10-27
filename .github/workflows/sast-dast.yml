@@ -24,5 +24,8 @@ jobs:
             - name: Run bandit against the source
               run: |
                   ls -la
-                  bandit --exclude ./env/ . -r -f json --output bandit-results.json --exit-zero
+                  bandit --exclude .github/ . -r -f json --output bandit-results.json --exit-zero
                   cat bandit-results.json
+
+            - name: Parse bandit output and post on slack
+              run: python .github/parse-bandit-results.py
