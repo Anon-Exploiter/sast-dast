@@ -23,8 +23,8 @@ jobs:
 
             - name: Run bandit against the source
               run: |
-                  ls -la
                   bandit --exclude ./.github/ . -r -f json --output bandit-output.json --exit-zero
+                  ls -la
                   cat bandit-results.json
 
             - name: Parse bandit output and post on slack
