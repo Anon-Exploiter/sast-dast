@@ -25,7 +25,7 @@ jobs:
               run: |
                   bandit --exclude ./.github/ . -r -f json --output bandit-output.json --exit-zero
                   ls -la
-                  cat bandit-results.json
+                  cat bandit-output.json
 
             - name: Parse bandit output and post on slack
               run: python ./.github/parse-bandit-results.py
