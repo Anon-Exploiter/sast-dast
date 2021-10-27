@@ -6,7 +6,7 @@ import os
 
 def read_file(file_name):
     with open(file_name, 'r') as f:
-        return f.read(file_name).strip()
+        return f.read().strip()
 
 def main():
     bandit_output_file = 'bandit-output.json'
@@ -14,7 +14,4 @@ def main():
     print(file_contents)
 
 if __name__ == '__main__':
-    os.system('ls -la')
-    os.system('ls -la ../')
-    os.system('pwd')
     main()
