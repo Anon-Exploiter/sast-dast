@@ -5,9 +5,9 @@ The repository is supposed to implement SAST+DAST checks using github actions ag
 ### Roadmap
 
 -   [x] Python vulnerable RCE application
--   [ ] Github actions
+-   [ ] Github actions (executes on PR to main/master branch)
     -   [ ] Implement SAST using bandit
     -   [ ] Implement DAST using OWASP ZAP (need app deployed somewhere - k8s to the rescue!)
-    -   [ ] Deploy application using Kubernetes
+    -   [ ] Deploy application using Kubernetes for OWASP ZAP scan
 -   [ ] Post gist of found vulnerabilities in Slack
     -   [ ] Use hashicorp vault to reference slack bot credentials
