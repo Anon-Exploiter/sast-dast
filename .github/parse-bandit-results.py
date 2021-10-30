@@ -34,13 +34,12 @@ def parse_bandit_output(contents):
             line_number = issues.get('line_number')
             more_info = issues.get('more_info')
 
-            if issue_severity == 'HIGH' or issue_severity == 'MEDIUM':
-                message += (f"*Title:* {issue_text}\n")
-                message += (f"*Severity:* `{issue_severity}`\n")
-                message += (f"*File name:* {filename}\n")
-                message += (f"*Line Number:* {line_number}\n")
-                message += (f"*Vulnerable code:*\n```{code}```\n")
-                message += (f"*More on the issue:* {more_info}\n\n\n")
+            message += (f"*Title:* {issue_text}\n")
+            message += (f"*Severity:* `{issue_severity}`\n")
+            message += (f"*File name:* {filename}\n")
+            message += (f"*Line Number:* {line_number}\n")
+            message += (f"*Vulnerable code:*\n```{code}```\n")
+            message += (f"*More on the issue:* {more_info}\n\n\n")
 
         print(message)
         post_to_slack(message)
