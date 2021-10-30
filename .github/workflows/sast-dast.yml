@@ -2,7 +2,11 @@ name: Perform SAST + DAST checks on PRs
 
 on:
     push:
-        branches: [master, main]
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
 
 jobs:
     sast:
