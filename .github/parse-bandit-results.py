@@ -45,7 +45,6 @@ def parse_bandit_output(contents):
         print(message)
         post_to_slack(message)
         
-
     else:
         print("[#] Bandit found no issues :D")
 
