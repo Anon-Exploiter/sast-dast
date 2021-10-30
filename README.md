@@ -10,5 +10,5 @@ The repository is supposed to implement SAST+DAST checks using github actions ag
     -   [ ] Implement DAST using OWASP ZAP (need app deployed somewhere - k8s to the rescue!)
     -   [ ] Deploy application using Kubernetes for OWASP ZAP scan
 -   [x] Post gist of found vulnerabilities in Slack
-    -   [ ] SAST - Use hashicorp vault to reference slack bot credentials
+    -   [x] SAST - Use hashicorp vault to reference slack bot credentials
     -   [ ] DAST - Use hashicorp vault to reference slack bot credentials
