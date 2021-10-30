@@ -20,18 +20,18 @@ jobs:
               with:
                   python-version: 3.9
 
-            - name: Install bandit
+            - name: Install bandit and slack modules
               run: |
                   python -m pip install --upgrade pip
                   pip install bandit slack_sdk
 
-            - name: Run bandit against the source
+            - name: Run bandit against the source of application
               run: |
                   bandit --exclude ./.github/ . -r -f json --output bandit-output.json --exit-zero
                   ls -la
                   cat bandit-output.json
 
-            - name: Import Secrets
+            - name: Import secrets from hashicorp and set as environmental variables
               uses: hashicorp/vault-action@v2.3.1
               with:
                   url: ${{ secrets.VAULT_URL }}
@@ -42,7 +42,7 @@ jobs:
                       /cubbyhole/slack/slack_secrets slack_bot_token | SLACK_BOT_TOKEN;
                       /cubbyhole/slack/slack_secrets slack_channel_id | SLACK_CHANNEL_ID
 
-            - name: Parse bandit output and post on slack
+            - name: Parse bandit output and post on slack using hashicorp exported secrets
               run: python .github/parse-bandit-results.py
             #   env:
             #       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
