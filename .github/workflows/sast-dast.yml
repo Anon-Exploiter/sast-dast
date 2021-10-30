@@ -28,4 +28,7 @@ jobs:
                   cat bandit-output.json
 
             - name: Parse bandit output and post on slack
-              run: python ./.github/parse-bandit-results.py
+              run: python .github/parse-bandit-results.py
+              env:
+                  - SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+                  - SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
