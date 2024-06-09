@@ -1,6 +1,7 @@
 name: Perform SAST + DAST checks on PRs
 
 on:
+    workflow_dispatch:
     push:
         branches:
             - main
